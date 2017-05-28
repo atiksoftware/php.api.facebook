@@ -1,7 +1,7 @@
 <?php
 
 
-	define("FACEBOOK_ACCESS_TOKEN","EAACEdEose0cBAAU77ZB7ZBLdZCJnvxxxxxxxxxxxxxxxxxxxalDSfQ5y5k58kO8ZCij2sU2qpdK6SEaORGbESYjbtZAdcgOALzZAI1YJzl");
+	define("FACEBOOK_ACCESS_TOKEN","EAACEdEose0cBAAU77ZBxxx6UkRvJPSLQpM7JalDSfQ5y5k58kO8ZCij2sU2qpdK6SEaORGbESYjbtZAdcgOALzZAI1YJzl");
 
 
 	class FacebookFeed
@@ -17,6 +17,7 @@
 				$data = json_decode($data,true);
 				$container = (isset($data["videos"]) ? $data["videos"] : $data);
 				foreach($container["data"] as $item){
+					$item["link"] = "https://www.facebook.com/{$id}/videos/{$item["id"]}/";
 					$liste[] = $item;
 				}
 				if(isset($container["paging"]["next"])){
